@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+set -e
+
+# called as "$(${ENV_ROOT}/bin/${env} init - ${no_rehash_arg}${shell})"
+
+# check roswell installed
+
+ros help 2>&1 > /dev/null
+
+if [ ! $? ] ; then
+   # install roswell
+   git clone -b release https://github.com/roswell/roswell.git ${LISPENV_ROOT}/roswell_src
+   cd ${LISPENV_ROOT}/roswell_src
+   sh bootstrap
+   ./configure --prefix=${LISPENV_ROOT}/roswell
+   make
+   make install
+fi
+
+echo "PATH=${LISPENV_ROOT}/roswell/bin:\$PATH"
+ros setup
