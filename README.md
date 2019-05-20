@@ -1,2 +1,2 @@
 # lispenv
-Roswell wrapper for anyenv
+Anyenv wrapper for Roswell
