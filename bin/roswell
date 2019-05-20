@@ -30,5 +30,5 @@ install_roswell(){
 # check whether roswell is installed
 test -x ${ROSWELL_ROOT}/roswell/bin/ros || install_roswell >&2
 echo "PATH=${ROSWELL_ROOT}/roswell/bin:\$PATH"
-echo -e "ROS_OPTS=\"((home-dir . \\\"${ROSWELL_ROOT}/roswell\\\"))\""
+echo -e "ROS_OPTS=\"((homedir . \\\"${ROSWELL_ROOT}/roswell\\\"))\""
 echo ros setup
