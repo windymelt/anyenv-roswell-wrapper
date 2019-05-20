@@ -15,18 +15,18 @@ ensure_dependencies(){
 }
 
 install_roswell(){
-    test -d ${LISPENV_ROOT}/roswell_src && rm -rf ${LISPENV_ROOT}/roswell_src
-    git clone -b release https://github.com/roswell/roswell.git ${LISPENV_ROOT}/roswell_src
-    cd ${LISPENV_ROOT}/roswell_src
+    test -d ${ROSWELl_ROOT}/roswell_src && rm -rf ${ROSWELL_ROOT}/roswell_src
+    git clone -b release https://github.com/roswell/roswell.git ${ROSWELL_ROOT}/roswell_src
+    cd ${ROSWELL_ROOT}/roswell_src
     ensure_dependencies
     sh bootstrap
-    ./configure --prefix=${LISPENV_ROOT}/roswell
+    ./configure --prefix=${ROSWELL_ROOT}/roswell
     make
     make install
 }
 
 # check whether roswell is installed
-test -x ${LISPENV_ROOT}/roswell/bin/ros || install_roswell >&2
-echo "PATH=${LISPENV_ROOT}/roswell/bin:\$PATH"
+test -x ${ROSWELL_ROOT}/roswell/bin/ros || install_roswell >&2
+echo "PATH=${ROSWELL_ROOT}/roswell/bin:\$PATH"
 
 echo ros setup
