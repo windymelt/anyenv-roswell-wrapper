@@ -20,6 +20,7 @@ install_roswell(){
     git clone -b release https://github.com/roswell/roswell.git ${ROSWELL_ROOT}/roswell_src
     cd ${ROSWELL_ROOT}/roswell_src
     ensure_dependencies
+    export ROSWELL_HOME=${ROSWELL_ROOT}/roswell
     sh bootstrap
     ./configure --prefix=${ROSWELL_ROOT}/roswell
     make
